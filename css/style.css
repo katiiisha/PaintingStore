@@ -1,18 +1,20 @@
 body {
   font-family: "Raleway", sans-serif;
-  padding-left: clamp(15px, 13vw, 165px);
-  padding-right: clamp(15px, 13vw, 145px);
+  margin: 0;
+  padding-left: 165px;
+  padding-right: 165px;
 }
 body header nav {
   display: flex;
   justify-content: space-between;
   padding: 35px 0;
-  font-size: 20px;
+  font-size: clamp(18px, 2vw, 20px);
 }
 body header nav .logo {
   display: inline-block;
 }
 body header nav .logo .logo_link {
+  white-space: nowrap;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -26,9 +28,13 @@ body header nav .nav-menu {
   align-items: center;
   gap: 60px;
 }
+body header nav .nav-menu .nav-menu_item:first-child {
+  display: none;
+}
 body header nav .nav-menu .nav-menu_link {
   text-decoration: none;
   color: #2C2D35;
+  white-space: nowrap;
 }
 body main .welcome-page {
   display: flex;
@@ -48,21 +54,23 @@ body main .welcome-page .welcome-page_box {
 body main .welcome-page .welcome-page_box .welcome-page_title {
   color: #2C2D35;
   margin: 0;
-  font-size: 60px;
+  font-size: clamp(40px, 5vw, 60px);
   line-height: 110%;
   padding-bottom: 20px;
 }
 body main .welcome-page .welcome-page_box .welcome-page_title .welcome-page_title__accent {
   color: #598D66;
+  white-space: nowrap;
 }
 body main .welcome-page .welcome-page_box .welcome-page_desc {
   margin: 0;
   color: #86928B;
   font-size: 18px;
   line-height: 150%;
-  padding-bottom: 60px;
+  padding-bottom: clamp(40px, 5vw, 60px);
 }
 body main .welcome-page .welcome-page_box .welcome-page_btn {
+  cursor: pointer;
   color: #598D66;
   font-size: 20px;
   display: inline-flex;
@@ -77,11 +85,13 @@ body main .welcome-page .welcome-page_box .welcome-page_btn {
 body .wrapper-reproductions div .reproductions-nav {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 body .wrapper-reproductions div .reproductions-nav .reproductions-nav_title {
   margin: 0;
   color: #2C2D35;
-  font-size: 40px;
+  font-size: clamp(30px, 4vw, 40px);
   font-weight: 500;
   line-height: 110%;
 }
@@ -110,7 +120,8 @@ body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs .repr
   color: #F4F6F5;
 }
 body .wrapper-reproductions div .reproductions {
-  display: flex;
+  display: none;
+  justify-content: space-around;
   flex-wrap: wrap;
   gap: 30px;
   padding-top: 30px;
@@ -118,8 +129,9 @@ body .wrapper-reproductions div .reproductions {
 body .wrapper-reproductions div .reproductions .reproductions-card {
   background-color: #E1EDE6;
   padding: 20px;
-  width: 350px;
-  height: 730px;
+  max-width: 350px;
+  width: 33.3%;
+  min-width: 329px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -129,7 +141,7 @@ body .wrapper-reproductions div .reproductions .reproductions-card .reproduction
   margin: 0;
 }
 body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_inner .reproductions-card_img {
-  width: 310px;
+  width: 100%;
   height: 422px;
 }
 body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_inner .reproductions-card_subtitle {
@@ -158,11 +170,170 @@ body .wrapper-reproductions div .reproductions .reproductions-card .reproduction
   margin-bottom: 20px;
 }
 body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_btn {
-  width: 310px;
   height: 65px;
   border: 1px solid #598D66;
   background-color: transparent;
   color: #598D66;
   font-size: 20px;
   cursor: pointer;
+}
+body .wrapper-reproductions div .reproductions__active {
+  display: flex;
+}
+
+@media (min-width: 768px) and (max-width: 1400px) {
+  body {
+    padding-left: 39px;
+    padding-right: 39px;
+  }
+}
+@media (max-width: 768px) {
+  body {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  body header nav {
+    padding: 16px 33px;
+    flex-wrap: wrap;
+  }
+  body header nav .nav-menu {
+    padding-left: 0;
+  }
+  body main .welcome-page {
+    margin: 50px 33px;
+  }
+  body main .welcome-page .welcome-page_img {
+    width: 195px;
+  }
+  body main .welcome-page .welcome-page_box {
+    width: 55%;
+  }
+  body main .welcome-page .welcome-page_box .welcome-page_title {
+    font-size: 36px;
+    font-weight: normal;
+  }
+  body .wrapper-reproductions {
+    margin: 30px;
+  }
+  body .wrapper-reproductions div .reproductions-nav .reproductions-nav_title {
+    font-size: 24px;
+  }
+  body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs .reproductions-nav_tab .reproductions-nav-tabs_link {
+    font-size: 18px;
+  }
+  body .wrapper-reproductions div .reproductions .reproductions-card {
+    min-width: 240px;
+    height: 514px;
+  }
+  body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_inner .reproductions-card_subtitle {
+    padding-top: 5px;
+    font-size: 16px;
+  }
+  body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_inner .reproductions-card_img {
+    height: 250px;
+  }
+  body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_title {
+    font-size: 24px;
+  }
+  body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_desc {
+    font-size: 16px;
+  }
+  body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_price {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_btn {
+    font-size: 18px;
+  }
+}
+@media (max-width: 640px) {
+  body header nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #E1EDE6;
+  }
+  body header nav .logo {
+    padding-bottom: 17px;
+    font-size: 20px;
+  }
+  body header nav .nav-menu {
+    padding-left: 0;
+    padding-top: 17px;
+    border-top: 1px solid #C3D1C6;
+  }
+}
+@media (max-width: 500px) {
+  body {
+    padding: 0;
+  }
+  body header nav {
+    padding: 0;
+  }
+  body header nav .logo {
+    width: 100%;
+    background-color: white;
+    padding: 17px 15px;
+  }
+  body header nav .logo .logo_link {
+    justify-content: center;
+  }
+  body header nav .nav-menu {
+    border: none;
+    width: 100%;
+    padding: 16px 15px;
+    justify-content: space-between;
+  }
+  body header nav .nav-menu .nav-menu_item {
+    display: none;
+  }
+  body header nav .nav-menu .nav-menu_item:last-child {
+    display: block;
+  }
+  body header nav .nav-menu .nav-menu_item:first-child {
+    display: block;
+  }
+  body main .welcome-page {
+    margin: 15px;
+  }
+  body main .welcome-page .welcome-page_img {
+    display: none;
+  }
+  body main .welcome-page .welcome-page_box {
+    width: 100%;
+  }
+  body main .welcome-page .welcome-page_box .welcome-page_title {
+    font-size: 30px;
+  }
+  body main .welcome-page .welcome-page_box .welcome-page_desc {
+    font-size: 14px;
+  }
+  body main .welcome-page .welcome-page_box .welcome-page_btn {
+    font-size: 18px;
+  }
+  body .wrapper-reproductions {
+    margin: 60px 15px;
+  }
+  body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs {
+    overflow-y: scroll;
+  }
+  body .wrapper-reproductions div .reproductions .reproductions-card {
+    width: 290px;
+  }
+}
+@media (max-width: 300px) {
+  body header {
+    min-width: 290px;
+  }
+  body main {
+    min-width: 290px;
+  }
+  body .wrapper-reproductions {
+    margin: 0;
+    padding: 15px;
+    box-sizing: border-box;
+    min-width: 290px;
+  }
+  body .wrapper-reproductions div .reproductions .reproductions-card {
+    width: 240px;
+  }
 }/*# sourceMappingURL=style.css.map */
