@@ -3,7 +3,8 @@ const reproductions = [...document.querySelectorAll('.reproductions')];
 const cardBtn = [...document.querySelectorAll('.reproductions-card_btn')];
 const modalCart = document.querySelector('.cart-modal');
 const switchModal = [...document.querySelectorAll('.switch-modal')];
-const cart = document.querySelector('.cart')
+const cart = document.querySelector('.cart');
+
 
 const changeContentTabs = function (e) {
     e.preventDefault()
@@ -34,7 +35,6 @@ const openCart = function (e) {
     e.preventDefault()
     modalCart.classList.toggle('cart-modal__active')
 }
-
 const createProductCard = function (src, autor, name, sum) {
     let product = document.createElement('div');
     let product_img = document.createElement('div');
@@ -78,7 +78,17 @@ const createProductCard = function (src, autor, name, sum) {
 
     return product
 }
-
+const quantityControl = function () { 
+    let quantity = this.closest('.product_quantity-control').querySelector('.quantity');
+    if (this.classList.contains('more')) {
+        quantity.textContent = Number(quantity.textContent) + 1;
+    } else { 
+        if (+quantity.textContent === 1) {
+            return
+        }
+        quantity.textContent = +quantity.textContent - 1;
+    }
+}
 const addCart = function () {
     let card = this.closest('.reproductions-card');
     let cardImg = card.querySelector('.reproductions-card_img').getAttribute('src');
@@ -86,8 +96,13 @@ const addCart = function () {
     let cardName = card.querySelector('.reproductions-card_title').textContent.trim();
     let cardPrice = card.querySelector('.reproductions-card_price').textContent.trim()
     let product = createProductCard(cardImg, cardAutor, cardName, cardPrice);
+    product.querySelector('.product_delete').addEventListener('click', function () {
+        this.closest('.product').remove()
+    })
+    let quantityControlBtn = [...product.querySelectorAll('.quantity-control')];
+    quantityControlBtn.forEach(btn => {btn.addEventListener('click', quantityControl)})
     cart.append(product)
-    // console.log(cardImg);
+   
 }
 
 

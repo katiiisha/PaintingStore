@@ -137,6 +137,7 @@ body {
                     margin: 0;
                 }
                 .cart_header-close {
+                    cursor: pointer;
                     border: none;
                     background-color: transparent;
                 }
@@ -166,6 +167,7 @@ body {
                     }
                     .product_quantity-control {
                         .quantity-control {
+                            cursor: pointer;
                             font-size: 40px;
                             width: 50px;
                             height: 50px;
@@ -178,8 +180,10 @@ body {
                         
                     }
                     .product_sum  {
-                            color: #598D66;
-                            
+                            color: #598D66;      
+                    }
+                    .product_delete {
+                        cursor: pointer;
                     }
                     
                 }
