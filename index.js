@@ -1,5 +1,9 @@
 const tabsLink = [...document.querySelectorAll('.reproductions-nav_tab')];
 const reproductions = [...document.querySelectorAll('.reproductions')];
+const cardBtn = [...document.querySelectorAll('.reproductions-card_btn')];
+const modalCart = document.querySelector('.cart-modal');
+const switchModal = [...document.querySelectorAll('.switch-modal')];
+const cart = document.querySelector('.cart')
 
 const changeContentTabs = function (e) {
     e.preventDefault()
@@ -26,6 +30,68 @@ const fixedMenuMibile = function () {
         }
     }
 }
+const openCart = function (e) {
+    e.preventDefault()
+    modalCart.classList.toggle('cart-modal__active')
+}
 
-tabsLink.forEach(item => item.addEventListener('click', changeContentTabs))
-window.addEventListener('scroll', fixedMenuMibile )
+const createProductCard = function (src, autor, name, sum) {
+    let product = document.createElement('div');
+    let product_img = document.createElement('div');
+    let product_desc = document.createElement('div');
+    let product_quantity_control = document.createElement('div');
+    let product_sum = document.createElement('div');
+    let product_delete = document.createElement('div');
+    let img = document.createElement('img');
+    let product_autor = document.createElement('p');
+    let product_name = document.createElement('p');
+    let quantityControlMore = document.createElement('button');
+    let quantityControlLess = document.createElement('button');
+    let quantity = document.createElement('span');
+    let imgDelete = document.createElement('img')
+
+    product.className = 'product';
+    product_img.className = 'product_img';
+    product_desc.className = 'product_desc';
+    product_quantity_control.className = 'product_quantity-control';
+    product_sum.className = 'product_sum';
+    product_delete.className = 'product_delete';
+    product_autor.className = 'product_autor';
+    product_name.className = 'product_name';
+    quantityControlMore.className = 'quantity-control more';
+    quantityControlLess.className = 'quantity-control less';
+    quantity.className = 'quantity';
+
+    img.src = `${src}`
+    quantityControlMore.textContent = '+';
+    quantityControlLess.textContent = '-';
+    quantity.textContent = '1';
+    product_autor.textContent = autor;
+    product_name.textContent = name;
+    product_sum.textContent = sum;
+    imgDelete.src = 'img/delete.svg'
+    product_delete.append(imgDelete)
+    product_quantity_control.append(quantityControlLess, quantity, quantityControlMore)
+    product_desc.append(product_autor, product_name)
+    product_img.append(img);
+    product.append(product_img, product_desc, product_quantity_control, product_sum, product_delete);
+
+    return product
+}
+
+const addCart = function () {
+    let card = this.closest('.reproductions-card');
+    let cardImg = card.querySelector('.reproductions-card_img').getAttribute('src');
+    let cardAutor = card.querySelector('.reproductions-card_subtitle').textContent.trim();
+    let cardName = card.querySelector('.reproductions-card_title').textContent.trim();
+    let cardPrice = card.querySelector('.reproductions-card_price').textContent.trim()
+    let product = createProductCard(cardImg, cardAutor, cardName, cardPrice);
+    cart.append(product)
+    // console.log(cardImg);
+}
+
+
+tabsLink.forEach(item => item.addEventListener('click', changeContentTabs));
+cardBtn.forEach(btn => btn.addEventListener('click', addCart ))
+window.addEventListener('scroll', fixedMenuMibile);
+switchModal.forEach(btn => btn.addEventListener('click', openCart))
