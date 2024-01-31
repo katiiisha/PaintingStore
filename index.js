@@ -88,6 +88,24 @@ const quantityControl = function () {
         }
         quantity.textContent = +quantity.textContent - 1;
     }
+    calculationTotalCost()
+}
+const calculationTotalCost = function () {
+    let products = [...cart.querySelectorAll('.product')];
+    // let products = [...cart.querySelectorAll('.product_sum')];
+    let result = document.querySelector('.cart_result-sum');
+    let productsSum = 0;
+
+    // products.forEach(item => productsSum += parseInt(item.textContent.split('руб')[0].replace(/\s/g, '')))
+    products.forEach(
+        function (item) {
+            let price = parseInt(item.querySelector('.product_sum').textContent.split('руб')[0].replace(/\s/g, ''))
+            let quantity = Number(item.querySelector('.quantity').textContent)
+            productsSum += price * quantity 
+        }
+    )
+    result.textContent = productsSum;
+   
 }
 const addCart = function () {
     let card = this.closest('.reproductions-card');
@@ -97,12 +115,13 @@ const addCart = function () {
     let cardPrice = card.querySelector('.reproductions-card_price').textContent.trim()
     let product = createProductCard(cardImg, cardAutor, cardName, cardPrice);
     product.querySelector('.product_delete').addEventListener('click', function () {
-        this.closest('.product').remove()
+        this.closest('.product').remove();
+        calculationTotalCost();
     })
     let quantityControlBtn = [...product.querySelectorAll('.quantity-control')];
     quantityControlBtn.forEach(btn => {btn.addEventListener('click', quantityControl)})
     cart.append(product)
-   
+    calculationTotalCost()
 }
 
 
