@@ -37,6 +37,7 @@ html {
                     gap: 60px;
                     
                     .nav-menu_item {
+                        cursor: pointer;
                         .numders-products {
                             display: none;
                             align-items: center;
@@ -74,6 +75,52 @@ html {
 
                     } 
                 }
+            }
+            
+            .wrapper-burger-menu {
+                display: none;
+                background: #E1EDE6;
+                box-sizing: border-box;
+                width: 100%;
+                position: fixed;
+                flex-direction: column;
+                gap: 30px;
+                padding: 15px;
+                align-items: flex-start;
+                width: 50vw;
+                top: 0;
+                transition: 1s;
+                .burger-menu_btn {
+                    border: none;
+                    background-color: transparent;
+                    cursor: pointer;
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+                .burger-menu {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0;
+                    margin: 0;
+                    gap: 50px;
+                    .burger-menu_item {
+                        list-style: none;
+                        .burger-menu_link {
+                            cursor: pointer;
+                            text-decoration: none;
+                            color: #2C2D35;
+                            font-size: 18px;
+                            font-weight: 500;
+                            line-height: normal;
+                        }
+                    }
+                }
+                &.wrapper-burger-menu__active {
+                display: flex;
+                width: 100%;
+            }
             }
             
         }
@@ -526,6 +573,7 @@ html {
         body {
             padding: 0;
             header {
+                position: static;
                 nav {
                     padding: 0;
                     .logo {
@@ -534,7 +582,6 @@ html {
                         padding: 17px 15px;
                         .logo_link {
                             justify-content: center;
-                            
                         }
                     }
                     .nav-menu {
@@ -562,6 +609,7 @@ html {
                 .welcome-page {
                     padding: 0;
                     margin: 15px;
+                    margin-bottom: -35px;
                     .welcome-page_img {
                         display: none;
                     }
@@ -580,7 +628,7 @@ html {
                 }
             }
             .wrapper-reproductions {
-                margin: 60px 15px;
+                margin: 50px 15px 0 15px;
                 padding: 0;
                 div {
                     .reproductions-nav {
@@ -607,6 +655,7 @@ html {
             }
             main {
                 min-width: 290px;
+                
             }
             .wrapper-reproductions {
                 margin: 0;

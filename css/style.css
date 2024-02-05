@@ -37,6 +37,9 @@ html body header nav .nav-menu {
   align-items: center;
   gap: 60px;
 }
+html body header nav .nav-menu .nav-menu_item {
+  cursor: pointer;
+}
 html body header nav .nav-menu .nav-menu_item .numders-products {
   display: none;
   align-items: center;
@@ -70,6 +73,51 @@ html body header nav .nav-menu .nav-menu_item .nav-menu_link:focus {
 }
 html body header nav .nav-menu .nav-menu_item .nav-menu_link:active {
   color: #376B44;
+}
+html body header .wrapper-burger-menu {
+  display: none;
+  background: #E1EDE6;
+  box-sizing: border-box;
+  width: 100%;
+  position: fixed;
+  flex-direction: column;
+  gap: 30px;
+  padding: 15px;
+  align-items: flex-start;
+  width: 50vw;
+  top: 0;
+  transition: 1s;
+}
+html body header .wrapper-burger-menu .burger-menu_btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+html body header .wrapper-burger-menu .burger-menu_btn img {
+  width: 30px;
+  height: 30px;
+}
+html body header .wrapper-burger-menu .burger-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  gap: 50px;
+}
+html body header .wrapper-burger-menu .burger-menu .burger-menu_item {
+  list-style: none;
+}
+html body header .wrapper-burger-menu .burger-menu .burger-menu_item .burger-menu_link {
+  cursor: pointer;
+  text-decoration: none;
+  color: #2C2D35;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+}
+html body header .wrapper-burger-menu.wrapper-burger-menu__active {
+  display: flex;
+  width: 100%;
 }
 html body main .welcome-page {
   padding-top: 105px;
@@ -456,6 +504,9 @@ html body .wrapper-reproductions div .reproductions__active {
   html body {
     padding: 0;
   }
+  html body header {
+    position: static;
+  }
   html body header nav {
     padding: 0;
   }
@@ -487,6 +538,7 @@ html body .wrapper-reproductions div .reproductions__active {
   html body main .welcome-page {
     padding: 0;
     margin: 15px;
+    margin-bottom: -35px;
   }
   html body main .welcome-page .welcome-page_img {
     display: none;
@@ -504,7 +556,7 @@ html body .wrapper-reproductions div .reproductions__active {
     font-size: 18px;
   }
   html body .wrapper-reproductions {
-    margin: 60px 15px;
+    margin: 50px 15px 0 15px;
     padding: 0;
   }
   html body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs {

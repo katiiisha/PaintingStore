@@ -5,6 +5,10 @@ const modalCart = document.querySelector('.cart-modal');
 const switchModal = [...document.querySelectorAll('.switch-modal')];
 const cart = document.querySelector('.cart');
 const numberProducts = document.querySelector('.numders-products');
+const burgerMenu = document.querySelector('.burger-menu');
+
+
+
 
 
 const changeContentTabs = function (e) {
@@ -150,8 +154,23 @@ const addCart = function () {
     calculationTotalCost();
 }
 
+const openBurgerMenu = function (e) {
+    e.preventDefault()
+    let burgerMenuAside = document.querySelector('.wrapper-burger-menu'); 
+    let nav = document.querySelector('.nav-menu');
+    nav.style.display = 'none';
+    burgerMenuAside.classList.add('wrapper-burger-menu__active');
+    let btnClose = burgerMenuAside.querySelector('.burger-menu_btn');
+    btnClose.addEventListener('click', function () {
+        burgerMenuAside.classList.remove('wrapper-burger-menu__active');
+        nav.style.display = 'flex';
+    })
+}
+
+
 
 tabsLink.forEach(item => item.addEventListener('click', changeContentTabs));
-cardBtn.forEach(btn => btn.addEventListener('click', addCart ))
+cardBtn.forEach(btn => btn.addEventListener('click', addCart));
 window.addEventListener('scroll', fixedMenuMibile);
-switchModal.forEach(btn => btn.addEventListener('click', openCart))
+switchModal.forEach(btn => btn.addEventListener('click', openCart));
+burgerMenu.addEventListener('click', openBurgerMenu)
