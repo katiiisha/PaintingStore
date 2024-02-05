@@ -1,12 +1,11 @@
 html {
   scroll-behavior: smooth;
 }
-
-body {
+html body {
   font-family: "Raleway", sans-serif;
   margin: 0;
 }
-body header {
+html body header {
   padding-left: 165px;
   padding-right: 165px;
   box-sizing: border-box;
@@ -14,16 +13,16 @@ body header {
   width: 100vw;
   background: #E1EDE6;
 }
-body header nav {
+html body header nav {
   display: flex;
   justify-content: space-between;
   padding: 35px 0;
   font-size: clamp(18px, 2vw, 20px);
 }
-body header nav .logo {
+html body header nav .logo {
   display: inline-block;
 }
-body header nav .logo .logo_link {
+html body header nav .logo .logo_link {
   white-space: nowrap;
   text-decoration: none;
   display: flex;
@@ -31,22 +30,48 @@ body header nav .logo .logo_link {
   font-weight: 700;
   color: #598D66;
 }
-body header nav .nav-menu {
+html body header nav .nav-menu {
   list-style-type: none;
   display: flex;
   margin: 0;
   align-items: center;
   gap: 60px;
 }
-body header nav .nav-menu .nav-menu_item:first-child {
+html body header nav .nav-menu .nav-menu_item .numders-products {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #598D66;
+  border-radius: 50%;
+  width: 13px;
+  height: 13px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  position: absolute;
+  bottom: 50px;
+}
+html body header nav .nav-menu .nav-menu_item:first-child {
   display: none;
 }
-body header nav .nav-menu .nav-menu_link {
+html body header nav .nav-menu .nav-menu_item .nav-menu_link {
   text-decoration: none;
   color: #2C2D35;
   white-space: nowrap;
+  transition: 0.3s;
 }
-body main .welcome-page {
+html body header nav .nav-menu .nav-menu_item .nav-menu_link:hover {
+  transition: 0.3s;
+  color: #598D66;
+}
+html body header nav .nav-menu .nav-menu_item .nav-menu_link:focus {
+  background: #D4E8D9;
+}
+html body header nav .nav-menu .nav-menu_item .nav-menu_link:active {
+  color: #376B44;
+}
+html body main .welcome-page {
   padding-top: 105px;
   padding-left: 165px;
   padding-right: 165px;
@@ -55,38 +80,36 @@ body main .welcome-page {
   align-items: center;
   gap: 30px;
 }
-body main .welcome-page .welcome-page_img {
+html body main .welcome-page .welcome-page_img {
   width: 50%;
 }
-body main .welcome-page .welcome-page_img img {
+html body main .welcome-page .welcome-page_img img {
   width: 100%;
 }
-body main .welcome-page .welcome-page_box {
+html body main .welcome-page .welcome-page_box {
   width: 50%;
   font-weight: 500;
 }
-body main .welcome-page .welcome-page_box .welcome-page_title {
+html body main .welcome-page .welcome-page_box .welcome-page_title {
   color: #2C2D35;
   margin: 0;
   font-size: clamp(40px, 5vw, 60px);
   line-height: 110%;
   padding-bottom: 20px;
 }
-body main .welcome-page .welcome-page_box .welcome-page_title .welcome-page_title__accent {
+html body main .welcome-page .welcome-page_box .welcome-page_title .welcome-page_title__accent {
   color: #598D66;
   white-space: nowrap;
 }
-body main .welcome-page .welcome-page_box .welcome-page_desc {
+html body main .welcome-page .welcome-page_box .welcome-page_desc {
   margin: 0;
   color: #86928B;
   font-size: 18px;
   line-height: 150%;
   padding-bottom: clamp(40px, 5vw, 60px);
 }
-body main .welcome-page .welcome-page_box .welcome-page_btn {
+html body main .welcome-page .welcome-page_box .welcome-page_btn {
   cursor: pointer;
-  color: #598D66;
-  font-size: 20px;
   display: inline-flex;
   height: 65px;
   box-sizing: border-box;
@@ -95,8 +118,25 @@ body main .welcome-page .welcome-page_box .welcome-page_btn {
   align-items: center;
   border: 1px solid #598D66;
   background-color: #fff;
+  transition: 0.5s;
 }
-body .cart-modal {
+html body main .welcome-page .welcome-page_box .welcome-page_btn .welcome-page_link {
+  text-decoration: none;
+  color: #598D66;
+  font-size: 20px;
+}
+html body main .welcome-page .welcome-page_box .welcome-page_btn:hover {
+  background-color: #D4E8D9;
+  transition: 0.5s;
+}
+html body main .welcome-page .welcome-page_box .welcome-page_btn:active {
+  transition: 0.5s;
+  background-color: #376B44;
+}
+html body main .welcome-page .welcome-page_box .welcome-page_btn:active .welcome-page_link {
+  color: #ffffff;
+}
+html body .cart-modal {
   display: none;
   justify-content: center;
   align-items: center;
@@ -107,7 +147,7 @@ body .cart-modal {
   bottom: 0;
   background: rgba(225, 237, 230, 0.5);
 }
-body .cart-modal .wrapper-cart {
+html body .cart-modal .wrapper-cart {
   width: 80vw;
   height: 80vh;
   background-color: #ffffff;
@@ -119,12 +159,12 @@ body .cart-modal .wrapper-cart {
   flex-direction: column;
   gap: 16px;
 }
-body .cart-modal .wrapper-cart .cart_header {
+html body .cart-modal .wrapper-cart .cart_header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-body .cart-modal .wrapper-cart .cart_header .cart_header-title {
+html body .cart-modal .wrapper-cart .cart_header .cart_header-title {
   color: #2C2D35;
   font-size: 36px;
   font-style: normal;
@@ -132,19 +172,19 @@ body .cart-modal .wrapper-cart .cart_header .cart_header-title {
   line-height: 100%;
   margin: 0;
 }
-body .cart-modal .wrapper-cart .cart_header .cart_header-close {
+html body .cart-modal .wrapper-cart .cart_header .cart_header-close {
   cursor: pointer;
   border: none;
   background-color: transparent;
 }
-body .cart-modal .wrapper-cart .cart {
+html body .cart-modal .wrapper-cart .cart {
   display: flex;
   flex-direction: column;
   gap: 14px;
   flex-grow: 1;
   overflow-y: scroll;
 }
-body .cart-modal .wrapper-cart .cart .product {
+html body .cart-modal .wrapper-cart .cart .product {
   display: flex;
   box-sizing: border-box;
   padding: 10px;
@@ -154,15 +194,15 @@ body .cart-modal .wrapper-cart .cart .product {
   align-items: center;
   justify-content: space-between;
 }
-body .cart-modal .wrapper-cart .cart .product .product_img {
+html body .cart-modal .wrapper-cart .cart .product .product_img {
   display: flex;
   height: 100%;
   width: 179px;
 }
-body .cart-modal .wrapper-cart .cart .product .product_desc {
+html body .cart-modal .wrapper-cart .cart .product .product_desc {
   font-size: 27px;
 }
-body .cart-modal .wrapper-cart .cart .product .product_quantity-control .quantity-control {
+html body .cart-modal .wrapper-cart .cart .product .product_quantity-control .quantity-control {
   cursor: pointer;
   font-size: 40px;
   width: 50px;
@@ -172,69 +212,78 @@ body .cart-modal .wrapper-cart .cart .product .product_quantity-control .quantit
   color: white;
   border-radius: 5px;
 }
-body .cart-modal .wrapper-cart .cart .product .product_sum {
+html body .cart-modal .wrapper-cart .cart .product .product_sum {
   color: #598D66;
 }
-body .cart-modal .wrapper-cart .cart .product .product_delete {
+html body .cart-modal .wrapper-cart .cart .product .product_delete {
   cursor: pointer;
 }
-body .cart-modal .wrapper-cart .cart_footer .cart_result {
+html body .cart-modal .wrapper-cart .cart_footer .cart_result {
   text-align: end;
   margin: 0;
 }
-body .cart-modal__active {
+html body .cart-modal__active {
   display: flex;
 }
-body .wrapper-reproductions {
+html body .wrapper-reproductions {
   padding: 114px 165px 0 165px;
   margin-top: -38px;
   box-sizing: border-box;
 }
-body .wrapper-reproductions div .reproductions-nav {
+html body .wrapper-reproductions div .reproductions-nav {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 20px;
 }
-body .wrapper-reproductions div .reproductions-nav .reproductions-nav_title {
+html body .wrapper-reproductions div .reproductions-nav .reproductions-nav_title {
   margin: 0;
   color: #2C2D35;
   font-size: clamp(30px, 4vw, 40px);
   font-weight: 500;
   line-height: 110%;
 }
-body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs {
+html body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs {
   display: flex;
   gap: 30px;
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
-body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs .reproductions-nav_tab {
+html body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs .reproductions-nav_tab {
   display: inline-block;
   padding: 10px 20px;
   border-radius: 20px;
   background: #D4E8D9;
+  cursor: pointer;
+  transition: 0.5s;
 }
-body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs .reproductions-nav_tab .reproductions-nav-tabs_link {
+html body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs .reproductions-nav_tab .reproductions-nav-tabs_link {
   text-decoration: none;
   color: #2C2D35;
   font-size: 20px;
 }
-body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs .reproductions-nav_tab__active {
+html body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs .reproductions-nav_tab:hover {
+  background-color: #598D66;
+  transition: 0.5s;
+}
+html body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs .reproductions-nav_tab:hover .reproductions-nav-tabs_link {
+  color: #ffffff;
+}
+html body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs .reproductions-nav_tab__active {
   background: #376B44;
 }
-body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs .reproductions-nav_tab__active .reproductions-nav-tabs_link {
+html body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs .reproductions-nav_tab__active .reproductions-nav-tabs_link {
   color: #F4F6F5;
 }
-body .wrapper-reproductions div .reproductions {
+html body .wrapper-reproductions div .reproductions {
   display: none;
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 30px;
   padding-top: 30px;
 }
-body .wrapper-reproductions div .reproductions .reproductions-card {
+html body .wrapper-reproductions div .reproductions .reproductions-card {
   background-color: #E1EDE6;
   padding: 20px;
   max-width: 350px;
@@ -245,168 +294,180 @@ body .wrapper-reproductions div .reproductions .reproductions-card {
   flex-direction: column;
   justify-content: space-between;
 }
-body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_inner {
+html body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_inner {
   margin: 0;
 }
-body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_inner .reproductions-card_img {
+html body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_inner .reproductions-card_img {
   width: 100%;
   height: 422px;
 }
-body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_inner .reproductions-card_subtitle {
+html body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_inner .reproductions-card_subtitle {
   color: #86928B;
   font-size: 18px;
   padding-top: 20px;
 }
-body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_title {
+html body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_title {
   color: #2C2D35;
   font-size: 30px;
   font-weight: 500;
   margin: 0;
   padding-top: 10px;
 }
-body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_desc {
+html body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_desc {
   margin: 0;
   padding-top: 8px;
   font-size: 18px;
   color: #2C2D35;
 }
-body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_price {
+html body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_price {
   color: #598D66;
   font-size: 24px;
   margin: 0;
   margin-top: 30px;
   margin-bottom: 20px;
 }
-body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_btn {
+html body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_btn {
   height: 65px;
   border: 1px solid #598D66;
   background-color: transparent;
   color: #598D66;
   font-size: 20px;
   cursor: pointer;
+  transition: 0.3s;
 }
-body .wrapper-reproductions div .reproductions__active {
+html body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_btn:hover {
+  background: #598D66;
+  color: #ffffff;
+  transition: 0.3s;
+}
+html body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_btn:active {
+  background: #376B44;
+  color: #ffffff;
+  scale: 0.9;
+  transition: 0.3s;
+}
+html body .wrapper-reproductions div .reproductions__active {
   display: flex;
 }
 
 @media (min-width: 768px) and (max-width: 1400px) {
-  body header {
+  html body header {
     padding-left: 39px;
     padding-right: 39px;
   }
-  body main .welcome-page {
+  html body main .welcome-page {
     padding-left: 39px;
     padding-right: 39px;
   }
-  body .wrapper-reproductions {
+  html body .wrapper-reproductions {
     padding-left: 39px;
     padding-right: 39px;
   }
 }
 @media (max-width: 768px) {
-  body {
+  html body {
     padding-left: 0px;
     padding-right: 0px;
   }
-  body header {
+  html body header {
     padding-left: 0px;
     padding-right: 0px;
   }
-  body header nav {
+  html body header nav {
     padding: 16px 33px;
     flex-wrap: wrap;
   }
-  body header nav .nav-menu {
+  html body header nav .nav-menu {
     padding-left: 0;
   }
-  body main .welcome-page {
+  html body header nav .nav-menu .nav-menu_item .numders-products {
+    bottom: 30px;
+  }
+  html body main .welcome-page {
     padding: 65px 0 0 0;
     margin: 0 33px 50px 33px;
   }
-  body main .welcome-page .welcome-page_img {
+  html body main .welcome-page .welcome-page_img {
     width: 195px;
   }
-  body main .welcome-page .welcome-page_box {
+  html body main .welcome-page .welcome-page_box {
     width: 55%;
   }
-  body main .welcome-page .welcome-page_box .welcome-page_title {
+  html body main .welcome-page .welcome-page_box .welcome-page_title {
     font-size: 36px;
     font-weight: normal;
   }
-  body .wrapper-reproductions {
+  html body .wrapper-reproductions {
     padding: 86px 0 0 0;
     margin: -86px 30px 30px 30px;
   }
-  body .wrapper-reproductions div .reproductions-nav .reproductions-nav_title {
+  html body .wrapper-reproductions div .reproductions-nav .reproductions-nav_title {
     font-size: 24px;
   }
-  body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs .reproductions-nav_tab .reproductions-nav-tabs_link {
+  html body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs .reproductions-nav_tab .reproductions-nav-tabs_link {
     font-size: 18px;
   }
-  body .wrapper-reproductions div .reproductions .reproductions-card {
+  html body .wrapper-reproductions div .reproductions .reproductions-card {
     min-width: 240px;
     height: 514px;
   }
-  body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_inner .reproductions-card_subtitle {
+  html body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_inner .reproductions-card_subtitle {
     padding-top: 5px;
     font-size: 16px;
   }
-  body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_inner .reproductions-card_img {
+  html body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_inner .reproductions-card_img {
     height: 250px;
   }
-  body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_title {
+  html body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_title {
     font-size: 24px;
   }
-  body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_desc {
+  html body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_desc {
     font-size: 16px;
   }
-  body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_price {
+  html body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_price {
     font-size: 20px;
     margin-bottom: 10px;
   }
-  body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_btn {
+  html body .wrapper-reproductions div .reproductions .reproductions-card .reproductions-card_btn {
     font-size: 18px;
   }
 }
 @media (max-width: 640px) {
-  body header nav {
+  html body header nav {
     flex-wrap: wrap;
     justify-content: center;
     background: #E1EDE6;
   }
-  body header nav .logo {
+  html body header nav .logo {
     padding-bottom: 17px;
     font-size: 20px;
   }
-  body header nav .nav-menu {
+  html body header nav .nav-menu {
     padding-left: 0;
     padding-top: 17px;
     border-top: 1px solid #C3D1C6;
   }
-  body .wrapper-reproductions {
+  html body .wrapper-reproductions {
     padding: 145px 0 0 0;
     margin: -145px 33px 50px 33px;
   }
 }
 @media (max-width: 500px) {
-  body {
+  html body {
     padding: 0;
   }
-  body header {
-    position: static;
-  }
-  body header nav {
+  html body header nav {
     padding: 0;
   }
-  body header nav .logo {
+  html body header nav .logo {
     width: 100%;
     background-color: white;
     padding: 17px 15px;
   }
-  body header nav .logo .logo_link {
+  html body header nav .logo .logo_link {
     justify-content: center;
   }
-  body header nav .nav-menu {
+  html body header nav .nav-menu {
     box-sizing: border-box;
     background-color: #E1EDE6;
     border: none;
@@ -414,59 +475,59 @@ body .wrapper-reproductions div .reproductions__active {
     padding: 16px 15px;
     justify-content: space-between;
   }
-  body header nav .nav-menu .nav-menu_item {
+  html body header nav .nav-menu .nav-menu_item {
     display: none;
   }
-  body header nav .nav-menu .nav-menu_item:last-child {
+  html body header nav .nav-menu .nav-menu_item:last-child {
     display: block;
   }
-  body header nav .nav-menu .nav-menu_item:first-child {
+  html body header nav .nav-menu .nav-menu_item:first-child {
     display: block;
   }
-  body main .welcome-page {
+  html body main .welcome-page {
     padding: 0;
     margin: 15px;
   }
-  body main .welcome-page .welcome-page_img {
+  html body main .welcome-page .welcome-page_img {
     display: none;
   }
-  body main .welcome-page .welcome-page_box {
+  html body main .welcome-page .welcome-page_box {
     width: 100%;
   }
-  body main .welcome-page .welcome-page_box .welcome-page_title {
+  html body main .welcome-page .welcome-page_box .welcome-page_title {
     font-size: 30px;
   }
-  body main .welcome-page .welcome-page_box .welcome-page_desc {
+  html body main .welcome-page .welcome-page_box .welcome-page_desc {
     font-size: 14px;
   }
-  body main .welcome-page .welcome-page_box .welcome-page_btn {
+  html body main .welcome-page .welcome-page_box .welcome-page_btn {
     font-size: 18px;
   }
-  body .wrapper-reproductions {
+  html body .wrapper-reproductions {
     margin: 60px 15px;
     padding: 0;
   }
-  body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs {
+  html body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs {
     overflow-y: scroll;
   }
-  body .wrapper-reproductions div .reproductions .reproductions-card {
+  html body .wrapper-reproductions div .reproductions .reproductions-card {
     width: 290px;
   }
 }
 @media (max-width: 300px) {
-  body header {
+  html body header {
     min-width: 290px;
   }
-  body main {
+  html body main {
     min-width: 290px;
   }
-  body .wrapper-reproductions {
+  html body .wrapper-reproductions {
     margin: 0;
     padding: 15px;
     box-sizing: border-box;
     min-width: 290px;
   }
-  body .wrapper-reproductions div .reproductions .reproductions-card {
+  html body .wrapper-reproductions div .reproductions .reproductions-card {
     width: 240px;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -4,6 +4,7 @@ const cardBtn = [...document.querySelectorAll('.reproductions-card_btn')];
 const modalCart = document.querySelector('.cart-modal');
 const switchModal = [...document.querySelectorAll('.switch-modal')];
 const cart = document.querySelector('.cart');
+const numberProducts = document.querySelector('.numders-products');
 
 
 const changeContentTabs = function (e) {
@@ -17,6 +18,7 @@ const changeContentTabs = function (e) {
     this.classList.add('reproductions-nav_tab__active')
     
 }
+
 const fixedMenuMibile = function () {
     if (window.screen.width <= 500) {
         let nav = document.querySelector('.nav-menu');
@@ -31,10 +33,12 @@ const fixedMenuMibile = function () {
         }
     }
 }
+
 const openCart = function (e) {
     e.preventDefault()
     modalCart.classList.toggle('cart-modal__active')
 }
+
 const createProductCard = function (src, autor, name, sum) {
     let product = document.createElement('div');
     let product_img = document.createElement('div');
@@ -78,35 +82,46 @@ const createProductCard = function (src, autor, name, sum) {
 
     return product
 }
+
 const quantityControl = function () { 
     let quantity = this.closest('.product_quantity-control').querySelector('.quantity');
     if (this.classList.contains('more')) {
         quantity.textContent = Number(quantity.textContent) + 1;
+        // numberProducts.textContent = +numberProducts.textContent + 1;
     } else { 
         if (+quantity.textContent === 1) {
             return
         }
         quantity.textContent = +quantity.textContent - 1;
+        // numberProducts.textContent = +numberProducts.textContent - 1;
     }
     calculationTotalCost()
 }
+
 const calculationTotalCost = function () {
     let products = [...cart.querySelectorAll('.product')];
-    // let products = [...cart.querySelectorAll('.product_sum')];
     let result = document.querySelector('.cart_result-sum');
     let productsSum = 0;
+    let productNumder = 0;
 
-    // products.forEach(item => productsSum += parseInt(item.textContent.split('руб')[0].replace(/\s/g, '')))
+    
     products.forEach(
         function (item) {
-            let price = parseInt(item.querySelector('.product_sum').textContent.split('руб')[0].replace(/\s/g, ''))
-            let quantity = Number(item.querySelector('.quantity').textContent)
-            productsSum += price * quantity 
+            let price = parseInt(item.querySelector('.product_sum').textContent.split('руб')[0].replace(/\s/g, ''));
+            let quantity = Number(item.querySelector('.quantity').textContent);
+
+            productsSum += price * quantity;
+            productNumder += productNumder + quantity;
         }
     )
+    numberProducts.textContent = productNumder;
+    numberProducts.style.display = 'flex';
     result.textContent = productsSum;
+    
+    
    
 }
+
 const addCart = function () {
     let card = this.closest('.reproductions-card');
     let cardImg = card.querySelector('.reproductions-card_img').getAttribute('src');
