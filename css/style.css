@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   scroll-behavior: smooth;
 }
@@ -538,7 +539,7 @@ html body .wrapper-reproductions div .reproductions__active {
   html body main .welcome-page {
     padding: 0;
     margin: 15px;
-    margin-bottom: -35px;
+    padding-top: 15px;
   }
   html body main .welcome-page .welcome-page_img {
     display: none;
@@ -558,6 +559,12 @@ html body .wrapper-reproductions div .reproductions__active {
   html body .wrapper-reproductions {
     margin: 50px 15px 0 15px;
     padding: 0;
+  }
+  html body .wrapper-reproductions:target:before {
+    content: "";
+    display: block;
+    height: 100px; /* высота заголовка */
+    margin: -100px 0 0; /* компенсация отступа */
   }
   html body .wrapper-reproductions div .reproductions-nav .reproductions-nav_tabs {
     overflow-y: scroll;

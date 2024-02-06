@@ -609,7 +609,7 @@ html {
                 .welcome-page {
                     padding: 0;
                     margin: 15px;
-                    margin-bottom: -35px;
+                    padding-top: 15px;
                     .welcome-page_img {
                         display: none;
                     }
@@ -630,6 +630,12 @@ html {
             .wrapper-reproductions {
                 margin: 50px 15px 0 15px;
                 padding: 0;
+                &:target:before {
+                    content: "";
+                    display: block;
+                    height: 100px; /* высота заголовка */
+                    margin: -100px 0 0; /* компенсация отступа */
+                    }
                 div {
                     .reproductions-nav {
                         .reproductions-nav_tabs {
